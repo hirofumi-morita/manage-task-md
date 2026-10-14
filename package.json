@@ -1,0 +1,33 @@
+{
+  "name": "taskmd",
+  "version": "0.1.0",
+  "description": "AIエージェントと人が同じ Markdown ファイルでタスクを管理するためのツール（CLI・MCPサーバ）",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "taskmd": "dist/cli/index.js",
+    "taskmd-mcp": "dist/mcp/index.js"
+  },
+  "files": [
+    "dist",
+    "vault-template"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "yaml": "^2.9.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.4"
+  }
+}

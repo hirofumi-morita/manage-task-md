@@ -1,0 +1,8 @@
+# taskmd の設定
+idPrefix: T          # タスクIDの接頭辞（T-0042 の T）
+idDigits: 4          # 連番の桁数
+leaseMinutes: 60     # 着手（claim）したときのロック時間（分）。長い作業は renew_lease で延長する
+tasksDir: tasks
+runsDir: runs
+templatesDir: templates
+agentsCanComplete: false   # true にするとエージェントも done にできる（通常は review で止める）

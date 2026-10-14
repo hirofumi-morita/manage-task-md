@@ -1,0 +1,69 @@
+filters:
+  and:
+    - file.inFolder("tasks")
+views:
+  - type: table
+    name: 着手できる
+    filters:
+      and:
+        - status == "ready"
+    order:
+      - file.name
+      - status
+      - priority
+      - assignee
+      - project
+      - due
+    sort:
+      - property: priority
+        direction: ASC
+      - property: due
+        direction: ASC
+  - type: table
+    name: 作業中
+    filters:
+      and:
+        - status == "in_progress"
+    order:
+      - file.name
+      - assignee
+      - lease_until
+      - project
+  - type: table
+    name: レビュー待ち
+    filters:
+      and:
+        - status == "review"
+    order:
+      - file.name
+      - assignee
+      - updated
+  - type: table
+    name: 止まっている
+    filters:
+      or:
+        - status == "blocked"
+        - status == "backlog"
+    order:
+      - file.name
+      - status
+      - depends_on
+      - priority
+  - type: table
+    name: 未完了すべて
+    filters:
+      and:
+        - status != "done"
+        - status != "cancelled"
+    order:
+      - file.name
+      - status
+      - priority
+      - assignee
+      - project
+      - due
+    sort:
+      - property: status
+        direction: ASC
+      - property: priority
+        direction: ASC
