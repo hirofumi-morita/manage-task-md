@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "taskmd": {
+      "command": "taskmd-mcp",
+      "args": ["--vault", "."],
+      "env": { "TASKMD_ACTOR": "agent:claude" }
+    }
+  }
+}
